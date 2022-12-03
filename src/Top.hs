@@ -2,6 +2,7 @@ module Top where
 
 import Day1
 import Day2
+import Day3
 
 readLinesFromFile :: FilePath -> IO [String]
 readLinesFromFile p =  do
@@ -29,5 +30,12 @@ main = do
     print (check 13809 (day2_part1 _bs))
     putStrLn "*Day 2 Part 2*"
     print (check 12316 (day2_part2 _bs))
+
+    putStrLn "*Day 3 Part 1*"
+    _bs <- readLinesFromFile "src/day3_input.txt"
+    -- print (check 157 (day3_part1 _bs))
+    print (check 7863 (day3_part1 _bs))
+    putStrLn "*Day 3 Part 2*"
+    print (check 2488 (day3_part2 _bs))
 
 
