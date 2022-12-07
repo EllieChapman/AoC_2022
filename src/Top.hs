@@ -6,6 +6,7 @@ import Day3
 import Day4
 import Day5
 import Day6
+import Day7
 
 readLinesFromFile :: FilePath -> IO [String]
 readLinesFromFile p =  do
@@ -60,4 +61,12 @@ main = do
     putStrLn "*Day 6 Part 2*"
     print (check 2263 (day6_part2 _bs))
 
+    putStrLn "*Day 7 Part 1*"
+    _bs <- readLinesFromFile "src/day7_input.txt"
+    -- print (check 95437 (day7_part1 _bs))
+    print (check 1334506 (day7_part1 _bs))
+    -- Day7.main
+    putStrLn "*Day 7 Part 2*"
+    print (check 7421137 (day7_part2 _bs))
 
+    -- 8528732 too high

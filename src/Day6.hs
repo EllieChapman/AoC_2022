@@ -22,6 +22,4 @@ get_pos s pos take_n = do
 
 check_unique :: String -> Int -> Bool
 check_unique s n =
-    if length (fromList s) == n
-    then True
-    else False
+    length (fromList s) == n
