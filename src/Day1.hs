@@ -3,18 +3,20 @@ module Day1 where
 import Data.List
 
 day1_part1 :: [String] -> Int
-day1_part1 xs = do
-    let xss = parse xs
-    -- map :: (a -> b) -> [a] -> [b]
-    let iss = map (map intify) xss
-    let is = map sum_elf iss
-    max_elf is
+day1_part1 = maximum . map sum . map (map intify) . splitOn ""
 
-sum_elf :: [Int] -> Int
-sum_elf is = sum is
+addone :: Int -> Int
+addone = \x -> x+1
 
-max_elf :: [Int] -> Int
-max_elf is = maximum is
+square :: Int -> Int
+square = \x -> x*x
+
+addonethensquare :: Int -> Int
+addonethensquare = square . addone . square
+
+compose :: (b -> c) -> (a -> b) -> (a -> c)
+compose f g = \x -> f(g x)
+
 
 parse :: [String] -> [[String]]
 parse xs = do
@@ -35,16 +37,22 @@ chop_one xs =
                 
         [] -> ([], [])
 
+splitOn :: Eq a => a -> [a] -> [[a]]
+splitOn x xs = go xs []
+    where go [] acc = [reverse acc]
+          go (y : ys) acc = if x == y
+                            then reverse acc : go ys []
+                            else go ys (y : acc)
+
 intify :: String -> Int
 intify = read
 
+takeopposite :: [a] -> Int -> [a]
+takeopposite as i = take i as
+
+myflip :: (a->b->c) -> b -> a -> c
+myflip f b a = f a b
+
 
 day1_part2 :: [String] -> Int
-day1_part2 xs = do
-    let xss = parse xs
-    -- map :: (a -> b) -> [a] -> [b]
-    let iss = map (map intify) xss
-    let is = map sum_elf iss
-    let sorted = reverse(sort is)
-    let top3 = take 3 sorted
-    sum top3
+day1_part2 = sum . myflip takeopposite 3 . reverse . sort . map sum . map (map intify) . parse

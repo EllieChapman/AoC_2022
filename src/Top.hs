@@ -3,6 +3,9 @@ module Top where
 import Day1
 import Day2
 import Day3
+import Day4
+import Day5
+import Day6
 
 readLinesFromFile :: FilePath -> IO [String]
 readLinesFromFile p =  do
@@ -37,5 +40,24 @@ main = do
     print (check 7863 (day3_part1 _bs))
     putStrLn "*Day 3 Part 2*"
     print (check 2488 (day3_part2 _bs))
+
+    putStrLn "*Day 4 Part 1*"
+    _bs <- readLinesFromFile "src/day4_input.txt"
+    print (check 536 (day4_part1 _bs))
+    putStrLn "*Day 4 Part 2*"
+    print (check 845 (day4_part2 _bs))
+
+    putStrLn "*Day 5 Part 1*"
+    _bs <- readLinesFromFile "src/day5_input.txt"
+    -- print (check ("CMZ") (day5_part1 _bs))
+    print (check ("SBPQRSCDF") (day5_part1 _bs))
+    putStrLn "*Day 5 Part 2*"
+    print (check ("RGLVRCQSB") (day5_part2 _bs))
+
+    putStrLn "*Day 6 Part 1*"
+    _bs <- readLinesFromFile "src/day6_input.txt"
+    print (check 1134 (day6_part1 _bs))
+    putStrLn "*Day 6 Part 2*"
+    print (check 2263 (day6_part2 _bs))
 
 
