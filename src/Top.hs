@@ -8,6 +8,11 @@ import Day5
 import Day6
 import Day7
 import Day8
+-- import Day9
+import Day10
+import Day11
+import Day12
+import Day11p2
 
 readLinesFromFile :: FilePath -> IO [String]
 readLinesFromFile p =  do
@@ -76,3 +81,29 @@ main = do
     print (check 1672 (day8_part1 _bs))
     putStrLn "*Day 8 Part 2*"
     print (check 327180 (day8_part2 _bs))
+
+    putStrLn "*Day 9 missing :(*"
+
+    putStrLn "*Day 10 Part 1*"
+    _bs <- readLinesFromFile "src/day10_input.txt"
+    print (check 12740 (day10_part1 _bs))
+    putStrLn "*Day 10 Part 2*"
+    putStr (day10_part2 _bs) -- RBPARAGF
+
+    putStrLn "*Day 11 Part 1*"
+    _bs <- readLinesFromFile "src/day11_input.txt"
+    part_1_res <- day11_part1 _bs
+    print (check 66802 part_1_res)
+    -- print (check 10605 part_1_res) -- test
+    putStrLn "*Day 11 Part 2*"
+    part_2_res <- day11_part2 _bs
+    print (check 21800916620 part_2_res)
+
+    putStrLn "*Day 12 Part 1*"
+    _bs <- readLinesFromFile "src/day12_input.txt"
+    print (check 447 (day12_part1 _bs))
+    putStrLn "*Day 12 Part 2*"
+    print (check 446 (day12_part2 _bs))
+
+
+    putStrLn "*All Passed!!!*"
