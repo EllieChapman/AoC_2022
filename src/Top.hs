@@ -13,6 +13,7 @@ import Day10
 import Day11
 import Day12
 import Day11p2
+import Day13
 
 readLinesFromFile :: FilePath -> IO [String]
 readLinesFromFile p =  do
@@ -105,5 +106,9 @@ main = do
     putStrLn "*Day 12 Part 2*"
     print (check 446 (day12_part2 _bs))
 
+    putStrLn "*Day 13 Part 1*"
+    _bs <- readLinesFromFile "src/day13_input.txt"
+    print (check 6046 (day13_part1 _bs))
+    print (check 21423 (day13_part2 _bs))
 
     putStrLn "*All Passed!!!*"
